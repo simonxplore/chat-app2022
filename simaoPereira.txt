@@ -1,0 +1,15 @@
+My name is Simão Pereira and I'm a exchange student from Lisbon, Portugal. I'm studying Audiovisual and Multimedia
+in my homeschool, but I came here to learn more about Visual and Web/App design. I have been doing a lot of online
+courses in this areas because it's something that I really like. 
+
+Besides all of this, I have been a photographer for the past 4 years, but recently stopped doing it professionaly 
+and decided to keep it just as an hobbie because it's something that I really like to do for fun on my instagram
+(@simonxplore).
+
+I had two previous courses in Web Development, in the first one we learned HTML and CSS and then, in the second, we
+learned Javascript and PhP. In the beggining I thought this course was just Web/App design but I found out now that
+it's actually Development which is very scary because I'm not that used to code. However, I'm excited to learn more
+about REACT. 
+
+In the future I would like to be either a Ux or a Ui Designer! It's a subject that I really like to study and learn
+more about.
