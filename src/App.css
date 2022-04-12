@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  
+}
+
+.App h1{
+  color: darkolivegreen;
+}
+
+.send{
+  color: white;
+  background-color: darkolivegreen;
+  border: 2px solid darkolivegreen;
 }
 
 .App-logo {

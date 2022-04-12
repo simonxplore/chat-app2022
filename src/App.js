@@ -32,7 +32,7 @@ class App extends React.Component {
         <Chatbox items={this.state.items} />
         <form className='message-form' onSubmit={this.onSubmit}>
           <input value={this.state.term} onChange={this.onChange} />
-          <button>Send</button>
+          <button className='send'>Send</button>
         </form>
       </div>
       );
