@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Hello from "./Hello";
 import React from "react";
 import Chatbox from "./components/Chatbox";
 import { Link } from "react-router-dom";
