@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import firebase, { auth } from "./firebase.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -33,8 +34,20 @@ class AppRouter extends React.Component {
           <nav className="main-nav">
             {!this.state.user && (
               <div>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <Link
+                  to="/login"
+                  className="link-success"
+                  style={{ textDecoration: "none" }}
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="link-success"
+                  style={{ textDecoration: "none" }}
+                >
+                  Register
+                </Link>
               </div>
             )}
             {this.state.user && (

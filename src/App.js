@@ -3,6 +3,11 @@ import React from "react";
 import Chatbox from "./components/Chatbox";
 import { Link } from "react-router-dom";
 import firebase from "./firebase";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,34 +37,49 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Chat App</h1>
+      <Container fluid="md">
+        <Row className="align-items-center">
+          <Col lg={true}>
+            <div className="App">
+              <h1 class="text-success text-left">For Developers</h1>
 
-        {this.props.user && (
-          <div className="allow-chat">
-            <Chatbox />
-            <form className="message-form" onSubmit={this.onSubmit}>
-              <input
-                type="text"
-                name="message"
-                id="message"
-                value={this.state.message}
-                placeholder="Enter a message..."
-                onChange={this.onChange}
-              />
-              <button className="send">Send</button>
-            </form>
-          </div>
-        )}
-        {!this.props.user && (
-          <div className="disallow-chat">
-            <p>
-              <Link to="/login">Login</Link> or
-              <Link to="/register"> Register</Link> to start chatting!
-            </p>
-          </div>
-        )}
-      </div>
+              {this.props.user && (
+                <div className="allow-chat">
+                  <Chatbox />
+                  <form className="message-form" onSubmit={this.onSubmit}>
+                    <input
+                      type="text"
+                      name="message"
+                      id="message"
+                      value={this.state.message}
+                      placeholder="Enter a message..."
+                      onChange={this.onChange}
+                    />
+                    <button className="send">Send</button>
+                  </form>
+                </div>
+              )}
+              {!this.props.user && (
+                <div className="disallow-chat text-left">
+                  <p>
+                    Welcome to Dach! In here you will be able to ask any
+                    question about coding and get answers by professionals!
+                  </p>
+
+                  <Link to="/register">
+                    <Button variant="outline-success">Join Us</Button>{" "}
+                  </Link>
+                </div>
+              )}
+            </div>
+          </Col>
+          <Col lg={true}>
+            <figure className="dev-image">
+              <img src={require("./img/1-bg.png")} alt="" />
+            </figure>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
