@@ -1,6 +1,12 @@
 import React from "react";
 import firebase from "../firebase.js";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import { Form } from "react-bootstrap";
 
 class Login extends React.Component {
   constructor(props) {
@@ -35,36 +41,78 @@ class Login extends React.Component {
     const { email, password, error } = this.state;
     return (
       <div className="auth-container">
-        <h1>Login</h1>
-        <p>Login to access your account</p>
-        {error && <p className="error-message"> {error.message} </p>}
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Email Adress</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            value={email}
-            onChange={this.handleChange}
-          ></input>
+        <Container fluid="md">
+          <Row className="align-items-center ">
+            <Col lg={true} style={{ marginBottom: "4em" }}>
+              <div>
+                <h1
+                  class="text-success text-left"
+                  style={{
+                    fontSize: "3.5em",
+                    fontFamily: "Inter, sans-serif",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Login
+                </h1>
+                <p>Login to access your account</p>
+                {error && <p className="error-message"> {error.message} </p>}
+                <form onSubmit={this.handleSubmit}>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label htmlFor="email">Email Adress</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={this.handleChange}
-          ></input>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label htmlFor="password">Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      name="password"
+                      id="password"
+                      value={password}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
 
-          <button className="submit">Login</button>
-          <p>
-            Don't have an account?{" "}
-            <Link className="login-btn" to="/register">
-              Register Here
-            </Link>
-          </p>
-        </form>
+                  <Button
+                    className="submit"
+                    variant="outline-success"
+                    size="lg"
+                    type="submit"
+                  >
+                    Login
+                  </Button>
+
+                  <Form.Text
+                    className="text-muted"
+                    style={{ marginTop: "20px" }}
+                  >
+                    Don't have an account?{" "}
+                    <Link className="login-btn text-success" to="/register">
+                      Register Here
+                    </Link>
+                  </Form.Text>
+                </form>
+              </div>
+            </Col>
+
+            <Col lg={true}>
+              <figure className="dev-image">
+                <img
+                  className="img-fluid"
+                  src={require("../img/1-bg.png")}
+                  alt=""
+                />
+              </figure>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

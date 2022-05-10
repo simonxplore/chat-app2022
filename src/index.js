@@ -8,6 +8,9 @@ import Register from "./components/Register";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import firebase, { auth } from "./firebase.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import { fontSize } from "@mui/system";
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -35,23 +38,38 @@ class AppRouter extends React.Component {
             {!this.state.user && (
               <div>
                 <Link
+                  to="/"
+                  className="link-success"
+                  style={{ textDecoration: "none", fontSize: "1.2em" }}
+                >
+                  Home
+                </Link>
+                <Link
                   to="/login"
                   className="link-success"
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none", fontSize: "1.2em" }}
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
                   className="link-success"
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none", fontSize: "1.2em" }}
                 >
                   Register
                 </Link>
               </div>
             )}
             {this.state.user && (
-              <a href="#!" onClick={this.logOutUser}>
+              <a
+                href="#!"
+                onClick={this.logOutUser}
+                className="text-success"
+                style={{
+                  textDecoration: "none",
+                  fontSize: "1.2em",
+                }}
+              >
                 Log Out
               </a>
             )}

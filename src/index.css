@@ -1,4 +1,5 @@
 body {
+  background-color: #fffff3;
   margin: 0;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -6,11 +7,9 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Inter", sans-serif;
 }
 .main-nav {
-  background-color: #fffff3;
   text-align: right;
   margin-bottom: 25px;
 }

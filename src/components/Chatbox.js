@@ -1,5 +1,6 @@
 import React from "react";
 import firebase from "../firebase";
+import { ListGroup } from "react-bootstrap";
 
 class Chatbox extends React.Component {
   constructor(props) {
@@ -32,18 +33,20 @@ class Chatbox extends React.Component {
   render() {
     return (
       <div className="chatbox">
-        <ul className="chat-list">
+        <ListGroup className="chat-list">
           {this.state.chats.map((chat) => {
             const postDate = new Date(chat.date);
             return (
-              <li key={chat.id}>
-                <em>{postDate.getDate() + "/" + (postDate.getMonth() + 1)} </em>
-                <strong>{chat.user}:</strong>
+              <ListGroup.Item key={chat.id}>
+                <em>
+                  {postDate.getDate() + "/" + (postDate.getMonth() + 1) + " -"}{" "}
+                </em>
+                <strong>{chat.user}: </strong>
                 {chat.message}
-              </li>
+              </ListGroup.Item>
             );
           })}
-        </ul>
+        </ListGroup>
       </div>
     );
   }

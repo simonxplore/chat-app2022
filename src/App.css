@@ -1,13 +1,12 @@
 .App {
   text-align: center;
-  
 }
 
-.App h1{
+.App h1 {
   color: darkolivegreen;
 }
 
-.send{
+.send {
   color: white;
   background-color: darkolivegreen;
   border: 2px solid darkolivegreen;

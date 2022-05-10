@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
+import { Form } from "react-bootstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -40,34 +41,58 @@ class App extends React.Component {
       <Container fluid="md">
         <Row className="align-items-center">
           <Col lg={true}>
-            <div className="App">
-              <h1 class="text-success text-left">For Developers</h1>
+            <div className="App" style={{ margin: "4em" }}>
+              <h1
+                class="text-success text-left"
+                style={{
+                  fontSize: "4rem",
+                  fontFamily: "Inter, sans-serif",
+                  marginBottom: "10px",
+                }}
+              >
+                For Developers
+              </h1>
 
               {this.props.user && (
                 <div className="allow-chat">
                   <Chatbox />
                   <form className="message-form" onSubmit={this.onSubmit}>
-                    <input
-                      type="text"
-                      name="message"
-                      id="message"
-                      value={this.state.message}
-                      placeholder="Enter a message..."
-                      onChange={this.onChange}
-                    />
-                    <button className="send">Send</button>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Control
+                        type="text"
+                        name="message"
+                        id="message"
+                        value={this.state.message}
+                        placeholder="Enter a message..."
+                        onChange={this.onChange}
+                      />
+                    </Form.Group>
+                    <Button
+                      className="send"
+                      variant="outline-success"
+                      size="lg"
+                      type="submit"
+                    >
+                      Send Message
+                    </Button>
                   </form>
                 </div>
               )}
               {!this.props.user && (
                 <div className="disallow-chat text-left">
-                  <p>
+                  <p
+                    style={{
+                      fontSize: "1.2em",
+                    }}
+                  >
                     Welcome to Dach! In here you will be able to ask any
                     question about coding and get answers by professionals!
                   </p>
 
                   <Link to="/register">
-                    <Button variant="outline-success">Join Us</Button>{" "}
+                    <Button variant="outline-success" size="lg">
+                      Join Us
+                    </Button>{" "}
                   </Link>
                 </div>
               )}
@@ -75,7 +100,11 @@ class App extends React.Component {
           </Col>
           <Col lg={true}>
             <figure className="dev-image">
-              <img src={require("./img/1-bg.png")} alt="" />
+              <img
+                className="img-fluid"
+                src={require("./img/1-bg.png")}
+                alt=""
+              />
             </figure>
           </Col>
         </Row>
