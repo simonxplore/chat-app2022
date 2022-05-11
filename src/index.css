@@ -9,23 +9,13 @@ body {
 code {
   font-family: "Inter", sans-serif;
 }
-.main-nav {
-  text-align: right;
-  margin-bottom: 25px;
+.pages-navbar {
+  color: #198754;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
 }
-
-a {
-  color: #00b74a;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-a:hover {
-  background-color: #00b74a;
-  color: #fff;
-}
-
-.main-nav a {
-  display: inline-block;
-  padding: 20px 20px;
+.pages-navbar:hover {
+  color: #fffff9;
+  background-color: #198754;
 }

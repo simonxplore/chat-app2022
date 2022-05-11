@@ -8,6 +8,10 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Form } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsFillChatLeftTextFill } from "react-icons/bs";
+import { FaDev } from "react-icons/fa";
 
 class App extends React.Component {
   constructor(props) {
@@ -38,22 +42,21 @@ class App extends React.Component {
   render() {
     return (
       <Container fluid="md">
-        <Row className="align-items-center">
+        <Row className="align-items-center justify-content-between">
           <Col lg={true} className="mb-5 mb-lg-0">
-            <div className="App mt-4 mt-lg-0">
-              <h1
-                className="text-success text-lg-start text-center"
-                style={{
-                  fontSize: "calc(2em + 1.5vw)",
-                  fontFamily: "Inter, sans-serif",
-                  margin: "0",
-                }}
-              >
-                For Developers
-              </h1>
-
+            <div className="App mt-5 mt-lg-0">
               {this.props.user && (
                 <div className="allow-chat">
+                  <h1
+                    className="text-success text-center mb-2"
+                    style={{
+                      fontSize: "calc(2em + 1.5vw)",
+                      fontFamily: "Inter, sans-serif",
+                      margin: "5em",
+                    }}
+                  >
+                    Chat
+                  </h1>
                   <Chatbox />
                   <form className="message-form" onSubmit={this.onSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -72,13 +75,23 @@ class App extends React.Component {
                       size="lg"
                       type="submit"
                     >
-                      Send Message
+                      Send Message <BsFillChatLeftTextFill />
                     </Button>
                   </form>
                 </div>
               )}
               {!this.props.user && (
                 <div className="disallow-chat text-left">
+                  <h1
+                    className="text-success text-lg-start text-center mb-2"
+                    style={{
+                      fontSize: "calc(2em + 1.5vw)",
+                      fontFamily: "Inter, sans-serif",
+                      margin: "0",
+                    }}
+                  >
+                    <FaDev /> For Developers
+                  </h1>
                   <p
                     className=" text-lg-start text-center"
                     style={{
@@ -92,7 +105,7 @@ class App extends React.Component {
                   <Link to="/register">
                     <div className=" text-lg-start text-center">
                       <Button variant="outline-success" size="lg">
-                        Join Us
+                        Join Us <BsFillArrowRightCircleFill />
                       </Button>{" "}
                     </div>
                   </Link>
@@ -100,14 +113,13 @@ class App extends React.Component {
               )}
             </div>
           </Col>
-          <Col lg={true}>
-            <figure className="dev-image">
-              <img
-                className="img-fluid"
-                src={require("./img/1-bg.png")}
-                alt=""
-              />
-            </figure>
+          <Col lg={true} className="align-items-center">
+            <Image
+              fluid
+              className="dev-image"
+              src={require("./img/1-bg.png")}
+              alt=""
+            />
           </Col>
         </Row>
       </Container>

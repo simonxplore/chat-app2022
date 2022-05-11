@@ -8,15 +8,16 @@ import Register from "./components/Register";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import firebase, { auth } from "./firebase.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ThemeProvider } from "react-bootstrap";
-
+import { ThemeProvider, Navbar, Nav, Container } from "react-bootstrap";
+import logo from "./img/datch.svg";
 /*
   
 import Container from "react-bootstrap/Container";
 import { fontSize } from "@mui/system";
-  import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
   
   */
+document.body.style = "background: #FFFFF9";
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -41,58 +42,90 @@ class AppRouter extends React.Component {
       <Router>
         <ThemeProvider
           breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
-          className=" vh-100"
         >
           <div className="app" style={{ backgroundColor: "#FFFFF9" }}>
-            <nav className="main-nav">
+            <Navbar bg="transparent" expand="lg">
               {!this.state.user && (
-                <div>
-                  <Link
-                    to="/"
-                    className="link-success"
-                    style={{ textDecoration: "none", fontSize: "1.2em" }}
+                <Container style={{}}>
+                  <Navbar.Brand href="/">
+                    <img
+                      src={logo}
+                      width="30"
+                      height="30"
+                      className="d-inline-block align-top"
+                      alt=""
+                      style={{ width: "70%" }}
+                    />
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse
+                    id="basic-navbar-nav"
+                    style={{}}
+                    className="justify.content.right flex-row-reverse"
                   >
-                    Home
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="link-success"
-                    style={{ textDecoration: "none", fontSize: "1.2em" }}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="link-success"
-                    style={{ textDecoration: "none", fontSize: "1.2em" }}
-                  >
-                    Register
-                  </Link>
-                </div>
+                    <Nav className="">
+                      <Nav.Link
+                        href="/login"
+                        className="link-success"
+                        style={{ textDecoration: "none", fontSize: "1.2em" }}
+                      >
+                        <p className="pages-navbar">Login</p>
+                      </Nav.Link>
+                      <Link
+                        className="login-btn text-success"
+                        to="/register"
+                      ></Link>
+                      <Nav.Link
+                        href="/register"
+                        className="link-success"
+                        style={{ textDecoration: "none", fontSize: "1.2em" }}
+                      >
+                        <p className="pages-navbar">Register</p>
+                      </Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
               )}
+
               {this.state.user && (
-                <a
-                  href="#!"
-                  onClick={this.logOutUser}
-                  className="text-success"
-                  style={{
-                    textDecoration: "none",
-                    fontSize: "1.2em",
-                  }}
-                >
-                  Log Out
-                </a>
+                <Container>
+                  <Navbar.Brand href="#">
+                    <img
+                      src={logo}
+                      width="30"
+                      height="30"
+                      className="d-inline-block align-top"
+                      alt=""
+                      style={{ width: "70%" }}
+                    />
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav flex-row-reverse">
+                    <Nav className="">
+                      <Nav.Link
+                        href="#"
+                        onClick={this.logOutUser}
+                        className="link-success"
+                        style={{ textDecoration: "none", fontSize: "1.2em" }}
+                      >
+                        Log Out
+                      </Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
               )}
-            </nav>
-            <Switch>
-              <Route
-                path="/"
-                exact
-                render={() => <App user={this.state.user} />}
-              />
-              <Route path="/login" exact component={Login} />
-              <Route path="/register" exact component={Register} />
-            </Switch>
+            </Navbar>
+            <div className="d-flex justify-content-center" style={{}}>
+              <Switch>
+                <Route
+                  path="/"
+                  exact
+                  render={() => <App user={this.state.user} />}
+                />
+                <Route path="/login" exact component={Login} />
+                <Route path="/register" exact component={Register} />
+              </Switch>
+            </div>
           </div>
         </ThemeProvider>
         ;
