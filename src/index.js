@@ -8,9 +8,15 @@ import Register from "./components/Register";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import firebase, { auth } from "./firebase.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import { ThemeProvider } from "react-bootstrap";
+
+/*
+  
 import Container from "react-bootstrap/Container";
 import { fontSize } from "@mui/system";
+  import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+  
+  */
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -33,57 +39,63 @@ class AppRouter extends React.Component {
   render() {
     return (
       <Router>
-        <div className="app">
-          <nav className="main-nav">
-            {!this.state.user && (
-              <div>
-                <Link
-                  to="/"
-                  className="link-success"
-                  style={{ textDecoration: "none", fontSize: "1.2em" }}
+        <ThemeProvider
+          breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
+          className=" vh-100"
+        >
+          <div className="app" style={{ backgroundColor: "#FFFFF9" }}>
+            <nav className="main-nav">
+              {!this.state.user && (
+                <div>
+                  <Link
+                    to="/"
+                    className="link-success"
+                    style={{ textDecoration: "none", fontSize: "1.2em" }}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="link-success"
+                    style={{ textDecoration: "none", fontSize: "1.2em" }}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="link-success"
+                    style={{ textDecoration: "none", fontSize: "1.2em" }}
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
+              {this.state.user && (
+                <a
+                  href="#!"
+                  onClick={this.logOutUser}
+                  className="text-success"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "1.2em",
+                  }}
                 >
-                  Home
-                </Link>
-                <Link
-                  to="/login"
-                  className="link-success"
-                  style={{ textDecoration: "none", fontSize: "1.2em" }}
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className="link-success"
-                  style={{ textDecoration: "none", fontSize: "1.2em" }}
-                >
-                  Register
-                </Link>
-              </div>
-            )}
-            {this.state.user && (
-              <a
-                href="#!"
-                onClick={this.logOutUser}
-                className="text-success"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "1.2em",
-                }}
-              >
-                Log Out
-              </a>
-            )}
-          </nav>
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={() => <App user={this.state.user} />}
-            />
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
-          </Switch>
-        </div>
+                  Log Out
+                </a>
+              )}
+            </nav>
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => <App user={this.state.user} />}
+              />
+              <Route path="/login" exact component={Login} />
+              <Route path="/register" exact component={Register} />
+            </Switch>
+          </div>
+        </ThemeProvider>
+        ;
       </Router>
     );
   }

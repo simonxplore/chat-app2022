@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import { Form } from "react-bootstrap";
 
 class App extends React.Component {
@@ -40,14 +39,14 @@ class App extends React.Component {
     return (
       <Container fluid="md">
         <Row className="align-items-center">
-          <Col lg={true}>
-            <div className="App" style={{ margin: "4em" }}>
+          <Col lg={true} className="mb-5 mb-lg-0">
+            <div className="App mt-4 mt-lg-0">
               <h1
-                class="text-success text-left"
+                className="text-success text-lg-start text-center"
                 style={{
-                  fontSize: "4rem",
+                  fontSize: "calc(2em + 1.5vw)",
                   fontFamily: "Inter, sans-serif",
-                  marginBottom: "10px",
+                  margin: "0",
                 }}
               >
                 For Developers
@@ -81,6 +80,7 @@ class App extends React.Component {
               {!this.props.user && (
                 <div className="disallow-chat text-left">
                   <p
+                    className=" text-lg-start text-center"
                     style={{
                       fontSize: "1.2em",
                     }}
@@ -90,9 +90,11 @@ class App extends React.Component {
                   </p>
 
                   <Link to="/register">
-                    <Button variant="outline-success" size="lg">
-                      Join Us
-                    </Button>{" "}
+                    <div className=" text-lg-start text-center">
+                      <Button variant="outline-success" size="lg">
+                        Join Us
+                      </Button>{" "}
+                    </div>
                   </Link>
                 </div>
               )}

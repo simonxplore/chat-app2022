@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import { Form } from "react-bootstrap";
 
 class Login extends React.Component {
@@ -41,21 +40,30 @@ class Login extends React.Component {
     const { email, password, error } = this.state;
     return (
       <div className="auth-container">
-        <Container fluid="md">
+        <Container fluid="md" className="p-5 p-md-0">
           <Row className="align-items-center ">
-            <Col lg={true} style={{ marginBottom: "4em" }}>
+            <Col
+              lg={true}
+              style={{
+                margin: "2em auto",
+                backgroundColor: "#fffff",
+              }}
+              className="shadow p-3 mb-5 bg-white rounded"
+            >
               <div>
                 <h1
-                  class="text-success text-left"
+                  className="text-success text-lg-start text-center"
                   style={{
-                    fontSize: "3.5em",
+                    fontSize: "calc(2em + 1.5vw)",
                     fontFamily: "Inter, sans-serif",
                     marginBottom: "10px",
                   }}
                 >
                   Login
                 </h1>
-                <p>Login to access your account</p>
+                <p className=" text-lg-start text-center">
+                  Login to access your account
+                </p>
                 {error && <p className="error-message"> {error.message} </p>}
                 <form onSubmit={this.handleSubmit}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -79,15 +87,16 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-
-                  <Button
-                    className="submit"
-                    variant="outline-success"
-                    size="lg"
-                    type="submit"
-                  >
-                    Login
-                  </Button>
+                  <div className=" text-lg-start text-center">
+                    <Button
+                      className="submit center"
+                      variant="outline-success"
+                      size="lg"
+                      type="submit"
+                    >
+                      Login
+                    </Button>
+                  </div>
 
                   <Form.Text
                     className="text-muted"

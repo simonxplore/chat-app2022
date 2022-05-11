@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import { Form } from "react-bootstrap";
 
 class Register extends React.Component {
@@ -48,14 +47,21 @@ class Register extends React.Component {
     const { email, username, password, error } = this.state;
     return (
       <div className="auth-container">
-        <Container fluid="md">
+        <Container fluid="md" className="p-5 p-md-0">
           <Row className="align-items-center">
-            <Col lg={true} style={{ marginBottom: "4em" }}>
+            <Col
+              lg={true}
+              style={{
+                margin: "0em auto",
+                backgroundColor: "#fffff",
+              }}
+              className="shadow p-3 mb-5 bg-white rounded"
+            >
               <div>
                 <h1
-                  class="text-success text-left"
+                  className="text-success text-lg-start text-center"
                   style={{
-                    fontSize: "3.5em",
+                    fontSize: "calc(2em + 1.5vw)",
                     fontFamily: "Inter, sans-serif",
                     marginBottom: "10px",
                   }}
@@ -105,15 +111,16 @@ class Register extends React.Component {
                       We'll never share your password with anyone else.
                     </Form.Text>
                   </Form.Group>
-
-                  <Button
-                    className="submit"
-                    variant="outline-success"
-                    size="lg"
-                    type="submit"
-                  >
-                    Get started
-                  </Button>
+                  <div className=" text-lg-start text-center">
+                    <Button
+                      className="submit"
+                      variant="outline-success"
+                      size="lg"
+                      type="submit"
+                    >
+                      Get started
+                    </Button>
+                  </div>
 
                   <Form.Text
                     className="text-muted"
