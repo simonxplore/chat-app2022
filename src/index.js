@@ -65,18 +65,16 @@ class AppRouter extends React.Component {
                   >
                     <Nav className="">
                       <Nav.Link
-                        href="/login"
+                        as={Link}
+                        to="/login"
                         className="link-success"
                         style={{ textDecoration: "none", fontSize: "1.2em" }}
                       >
                         <p className="pages-navbar">Login</p>
                       </Nav.Link>
-                      <Link
-                        className="login-btn text-success"
-                        to="/register"
-                      ></Link>
                       <Nav.Link
-                        href="/register"
+                        as={Link}
+                        to="/register"
                         className="link-success"
                         style={{ textDecoration: "none", fontSize: "1.2em" }}
                       >
@@ -103,7 +101,8 @@ class AppRouter extends React.Component {
                   <Navbar.Collapse id="basic-navbar-nav flex-row-reverse">
                     <Nav className="">
                       <Nav.Link
-                        href="#"
+                        as={Link}
+                        to="/"
                         onClick={this.logOutUser}
                         className="link-success"
                         style={{ textDecoration: "none", fontSize: "1.2em" }}
