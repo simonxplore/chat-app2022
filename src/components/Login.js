@@ -39,7 +39,7 @@ class Login extends React.Component {
   render() {
     const { email, password, error } = this.state;
     return (
-      <div className="auth-container  mt-2 mt-md-0">
+      <div className="auth-container  mt-1 mt-md-0">
         <Container fluid="md" className="p-5 p-md-0">
           <Row className="align-items-center justify-content-between">
             <Col

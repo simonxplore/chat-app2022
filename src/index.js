@@ -98,7 +98,10 @@ class AppRouter extends React.Component {
                     />
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav flex-row-reverse">
+                  <Navbar.Collapse
+                    id="basic-navbar-nav"
+                    className="justify.content.right flex-row-reverse"
+                  >
                     <Nav className="">
                       <Nav.Link
                         as={Link}

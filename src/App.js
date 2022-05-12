@@ -46,13 +46,12 @@ class App extends React.Component {
           <Col lg={true} className="mb-5 mb-lg-0">
             <div className="App mt-5 mt-lg-0">
               {this.props.user && (
-                <div className="allow-chat">
+                <div className="allow-chat ml-5 ml-md-0 mr-5 mr-md-0">
                   <h1
-                    className="text-success text-center mb-2"
+                    className="text-success text-center mb-2 mt-2 mt-md-5"
                     style={{
                       fontSize: "calc(2em + 1.5vw)",
                       fontFamily: "Inter, sans-serif",
-                      margin: "5em",
                     }}
                   >
                     Chat

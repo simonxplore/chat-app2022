@@ -46,13 +46,8 @@ class Register extends React.Component {
   render() {
     const { email, username, password, error } = this.state;
     return (
-      <div
-        className="auth-container mt-2 mt-md-0"
-        style={{
-          paddingTop: "3em",
-        }}
-      >
-        <Container fluid="md" className="p-5 p-md-0">
+      <div className="auth-container mt-2 mt-md-0">
+        <Container fluid="md" className="p-3 p-md-0">
           <Row className="align-items-center">
             <Col
               lg={true}
