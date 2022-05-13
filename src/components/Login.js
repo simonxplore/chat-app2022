@@ -41,7 +41,7 @@ class Login extends React.Component {
     return (
       <div className="auth-container  mt-1 mt-md-0">
         <Container fluid="md" className="p-5 p-md-0">
-          <Row className="align-items-center justify-content-between">
+          <Row className="align-items-center">
             <Col
               lg={true}
               style={{
